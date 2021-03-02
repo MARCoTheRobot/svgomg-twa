@@ -44,10 +44,10 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId twaManifest.applicationId
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 29
-        versionCode 5
-        versionName "2.0.1"
+        versionCode 6
+        versionName "2.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         // The name for the application on the Android Launcher
@@ -160,5 +160,12 @@ preBuild.dependsOn(generateShorcutsFile)
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:1.1.0'
+    def appcompat_version = "1.2.0"
+
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    // For loading and tinting drawables on older versions of the platform
+    implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.1.0'
+    implementation 'com.google.androidbrowserhelper:billing:1.0.0-alpha05'
+
 }
